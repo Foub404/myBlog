@@ -1,0 +1,8 @@
+<div class="article-card">
+  <h2>{{ article.title }}</h2>
+  <p>{{ article.content }}</p>
+  <p><strong>Date :</strong> {{ article.createdAt | date: 'longDate' }}</p>
+  <p><strong>Publiée :</strong> {{ article.isPublished }}</p>
+  <p><strong>Nombre de like :</strong> {{ article.likeCount }} 👍</p>
+  <img [src]="article.image" alt="Image de l'article" width="400" />
+</div>
