@@ -1,4 +1,5 @@
 export interface Article {
+  id: number;
   title: string;
   content: string;
   image: string;
@@ -6,5 +7,6 @@ export interface Article {
   isPublished: boolean;
   likeCount: number;
   categoryName: string;
+  isLiked: boolean;
 }
 

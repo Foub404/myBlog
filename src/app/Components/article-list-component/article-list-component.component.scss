@@ -1,0 +1,11 @@
+.article {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+
+  &.popular-article {
+    border: 2px solid red;
+  }
+}
