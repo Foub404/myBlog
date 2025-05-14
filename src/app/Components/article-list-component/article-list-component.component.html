@@ -1,5 +1,5 @@
 <div *ngIf="articles.length > 0; else noArticles">
-    <div *ngFor="let article of articles">
+  <div *ngFor="let article of articles">
 
     <ng-container *ngIf="article.isPublished">
       <article
@@ -7,11 +7,12 @@
         [ngStyle]="{
           'background-color': article.isLiked ? '#f9f9f9' : '#ffffff',
           'padding': '1rem',
-          'margin-bottom': '1rem'
+          'margin-bottom': '1rem',
         }"
       >
         <h2>{{ article.title }}</h2>
-        <img [src]="article.image" alt="Image de {{ article.image }}" width="100%" />
+        <a [routerLink]="['/article', article.id]">Voir l'article</a>
+        <img [src]="article.image" [alt]="' Image de '+ article.title"/>
         <p>{{ article.content }}</p>
         <small>Catégorie : {{ article.categoryName }} | Publié le : {{ article.createdAt | date:'longDate' }}</small>
         <div>

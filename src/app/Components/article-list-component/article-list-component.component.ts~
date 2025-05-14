@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {Article} from '../../models/article.models.component';
 import {DatePipe, NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {articleListComponent} from './article-list-component.component.html';
 
 @Component({
   selector: 'app-article-list-component',
