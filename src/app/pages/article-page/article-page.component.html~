@@ -1,0 +1,12 @@
+<div *ngFor="let article of articleId | async">
+
+  <ng-container *ngIf="article.isPublished">
+    <h2>{{ article.title }}</h2>
+      <img [src]="article.image" [alt]="' Image de '+ article.title"/>
+      <p>{{ article.content }}</p>
+      <small>Catégorie : {{ article.categoryName }} | Publié le : {{ article.createdAt | date:'longDate' }}</small>
+      <div>
+        ❤️ {{ article.likeCount }}
+      </div>
+  </ng-container>
+</div>

@@ -1,10 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import {Component, NgIterable, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {AsyncPipe, DatePipe, NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-article-page',
   imports: [
-    ],
+    DatePipe,
+    NgForOf,
+    NgIf,
+    AsyncPipe
+  ],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })

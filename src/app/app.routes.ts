@@ -1,11 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 import {ArticlePageComponent} from './pages/article-page/article-page.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
-import {AppComponent} from './app.component';
-import {ArticleListComponent} from './Components/article-list-component/article-list-component.component';
-import {BrowserModule} from '@angular/platform-browser';
+import {ContactFormComponent} from './Components/contact-form/contact-form.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +12,10 @@ export const routes: Routes = [
   {
     path: 'article/:id',
     component: ArticlePageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactFormComponent
   },
   {
     path: '**',
