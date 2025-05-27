@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ArticleListComponent} from '../../Components/article-list-component/article-list-component.component';
-import {RouterOutlet} from '@angular/router';
+
 
 @Component({
   selector: 'app-home-page',

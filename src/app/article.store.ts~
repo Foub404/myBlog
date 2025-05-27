@@ -1,6 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+
+@Injectable({
+  providedIn: ArticleStore,
+})
 export class ArticleStore {
   readonly #articles = signal(
     [

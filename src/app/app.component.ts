@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {HeaderComponent} from './Components/header/header.component';
-import {ArticleListComponent} from './Components/article-list-component/article-list-component.component';
 import {RouterOutlet} from '@angular/router';
 
 
