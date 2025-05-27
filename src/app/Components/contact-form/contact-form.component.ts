@@ -1,28 +1,30 @@
-import { Component } from '@angular/core';
-import {Message} from '../../models/message.models';
-import {FormsModule} from '@angular/forms';
+import {Component, inject} from '@angular/core';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   imports: [
-    FormsModule
+    ReactiveFormsModule
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
 
-  export class ContactFormComponent {
+export class ContactFormComponent {
 
-  newMessage: Message = {
-    lastname: "",
-    firstname: "",
-    email: "",
-    content: ""
-  };
+  readonly #fb = inject(FormBuilder)
+  readonly contactForm = this.#fb.group({
+      lastname: ['', [Validators.required, Validators.minLength(2),Validators.maxLength(15)]],
+      firstname: ['', [Validators.required, Validators.minLength(2),Validators.maxLength(15)]],
+      email: ['', [Validators.required, Validators.email]],
+      content: ['', [Validators.required, Validators.minLength(20)]],
+    }
+  );
+
   formSubmitted: boolean | undefined;
 
   onSubmit(): void {
-    console.log(this.newMessage);
+    console.log(this.contactForm.getRawValue());
   }
 }
 
