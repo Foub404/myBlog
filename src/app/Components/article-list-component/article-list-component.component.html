@@ -1,34 +1,28 @@
-<div *ngIf="articles.length > 0; else noArticles">
-  <div *ngFor="let article of articles">
+@if (articles().length) {
 
-    <ng-container *ngIf="article.isPublished">
-      <article
-        [ngClass]="{'popular-article': article.likeCount > 200}"
-        [ngStyle]="{
-          'background-color': article.isLiked ? '#f9f9f9' : '#ffffff',
-          'padding': '1rem',
-          'margin-bottom': '1rem',
-        }"
-      >
-        <h2>{{ article.title }}</h2>
-        <a [routerLink]="['/article', article.id]">Voir l'article</a>
-        <img [src]="article.image" [alt]="' Image de '+ article.title"/>
-        <p>{{ article.content }}</p>
-        <small>Catégorie : {{ article.categoryName }} | Publié le : {{ article.createdAt | date:'longDate' }}</small>
-        <div>
-          ❤️ {{ article.likeCount }}
-        </div>
-      </article>
-    </ng-container>
+
+  <div>
+    @for (article of articles(); track article.id) {
+      <div>
+        @if (article.isPublished) {
+          <article class="article"
+                   [class.popular]="article.likeCount > 200"
+                   [class.liked]="article.isLiked"
+          >
+            <h2>{{ article.title }}</h2>
+            <a [routerLink]="['/article', article.id]">Voir l'article</a>
+            <img class="article-image" [src]="article.image" [alt]="' Image de '+ article.title"/>
+            <p>{{ article.content }}</p>
+            <small>Catégorie : {{ article.categoryName }} | Publié le
+              : {{ article.createdAt | date:'longDate' }}</small>
+            <div>
+              ❤️ {{ article.likeCount }}
+            </div>
+          </article>
+        }
+      </div>
+    }
   </div>
-</div>
-
-<ng-template #noArticles>
-  <p>Aucun article publié pour le moment.</p>
-</ng-template>
-
-<style>
-  .popular-article {
-    border: 1px red solid;
-  }
-</style>
+} @else {
+  <p>Aucun article trouvé</p>
+}
