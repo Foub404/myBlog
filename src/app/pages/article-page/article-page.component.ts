@@ -17,5 +17,3 @@ export class ArticlePageComponent {
   readonly id = input.required({transform: numberAttribute});
   readonly article = computed(() => this.#articleStore.articles().find(article => article.id === this.id()));
 }
-
-
