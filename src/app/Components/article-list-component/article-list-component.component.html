@@ -1,0 +1,28 @@
+@if (articles().length) {
+
+
+  <div>
+    @for (article of articles(); track article.id) {
+      <div>
+        @if (article.isPublished) {
+          <article class="article"
+                   [class.popular]="article.likeCount > 200"
+                   [class.liked]="article.isLiked"
+          >
+            <h2>{{ article.title }}</h2>
+            <a [routerLink]="['/article', article.id]">Voir l'article</a>
+            <img class="article-image" [src]="article.image" [alt]="' Image de '+ article.title"/>
+            <p>{{ article.content }}</p>
+            <small>Catégorie : {{ article.categoryName }} | Publié le
+              : {{ article.createdAt | date:'longDate' }}</small>
+            <div>
+              ❤️ {{ article.likeCount }}
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <p>Aucun article trouvé</p>
+}

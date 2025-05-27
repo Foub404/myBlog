@@ -1,0 +1,28 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+  background: #ffffff;
+  gap: 8px;
+
+  &.popular {
+    border: 2px solid red;
+  }
+
+  &.liked {
+    background: #f9f9f9;
+  }
+
+  &-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+  }
+}
+
+

@@ -1,0 +1,74 @@
+<form [formGroup]="contactForm" (ngSubmit)="formSubmitted = true; contactForm.valid && onSubmit()">
+
+  <!-- Champ Nom -->
+  <fieldset>
+    <label for="lastname">Nom</label>
+    <input id="lastname" name="lastname" type="text"
+           formControlName="lastname">
+    @if (formSubmitted && contactForm.controls.lastname.errors) {
+      <div>
+        @if (contactForm.controls.lastname.errors['required']) {
+          <span>Le nom est requis</span>
+        }
+        @if (contactForm.controls.lastname.errors['minlength']) {
+          <span>La longueur minimale doit être supérieure à 2 et inférieure à 15</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+  <!-- Champ Prénom -->
+  <fieldset>
+    <label for="firstname">Prénom</label>
+    <input id="firstname" name="firstname" type="text" formControlName="firstname">
+    @if (formSubmitted && contactForm.controls.firstname.errors) {
+      <div>
+        @if (contactForm.controls.firstname.errors['required']) {
+          <span>Le prénom est requis</span>
+        }
+        @if (contactForm.controls.firstname.errors['minlength']) {
+          <span>La longueur minimale doit être supérieure à 2 et inférieure à 15</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+  <!-- Champ Email -->
+  <fieldset>
+    <label for="email">Contact</label>
+    <input id="email" name="email" type="email"
+            formControlName="email">
+    @if (formSubmitted && contactForm.controls.email.errors) {
+      <div>
+        @if (contactForm.controls.email.errors['required']) {
+          <span>L'email est requis</span>
+        }
+        @if (contactForm.controls.email.errors['email']) {
+          <span>Veuillez fournir une adresse email valide</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+  <!-- Champ Contenu du message -->
+  <fieldset>
+    <label for="content">Contenu du message</label>
+    <textarea id="content" name="content"
+              formControlName="content" rows="4" cols="50"></textarea>
+    @if (formSubmitted && contactForm.controls.content.errors) {
+      <div>
+        @if (contactForm.controls.content.errors['required']) {
+          <span>Le contenu du message est requis</span>
+        }
+        @if (contactForm.controls.content.errors['minlength']) {
+          <span>Le contenu doit comporter au moins 20 caractères</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+
+
+  <button type="reset" (click)="formSubmitted = false">Restaurer</button>
+  <button type="submit" [disabled]="contactForm.invalid">Sauvegarder</button>
+</form>
